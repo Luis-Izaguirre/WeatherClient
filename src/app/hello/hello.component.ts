@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 interface WeatherForecast {
   date: string;
@@ -17,15 +18,15 @@ interface WeatherForecast {
 })
 export class HelloComponent implements OnInit{
   public forecasts: WeatherForecast[] = [];
-  baseUrl = "http://localhost:5100/";
+  // baseUrl = "http://localhost:5100/"; Hardcoded so bad...
   constructor(private http: HttpClient) {}
   ngOnInit(): void {
     this.getForecasts();
 
   }
 
-  getForecasts() {
-    this.http.get<WeatherForecast[]>(this.baseUrl+'weatherforecast').subscribe(
+  getForecasts() { //was missing / before weatherforecast
+    this.http.get<WeatherForecast[]>(environment.baseUrl +'/weatherforecast').subscribe(
       (result) => {
         this.forecasts = result;
       },
