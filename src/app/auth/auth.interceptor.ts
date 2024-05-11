@@ -8,6 +8,8 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService = inject(AuthService);
   const authToken = authService.getToken();
   const router = inject(Router);
+  console.log(req);
+  console.log("Interceptor Test");
   if(authToken){
     const newReq = req.clone({
       setHeaders: {

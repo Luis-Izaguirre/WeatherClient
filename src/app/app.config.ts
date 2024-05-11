@@ -12,3 +12,4 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     provideHttpClient(withInterceptors([authInterceptor]))],
 };
+console.log([authInterceptor])

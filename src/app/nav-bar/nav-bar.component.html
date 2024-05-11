@@ -8,6 +8,13 @@
         <a mat-flat-button color="primary" [routerLink]="['/countries']">
             Countries
         </a>
-        <a mat-flat-button color="primary" [routerLink]="['/loggin']">Login</a>
+        <span class="separator"></span>
+
+        @if(isLoggedin){
+            <a mat-flat-button color="primary" (click) = "onLogOut()">Log Out</a>
+        } @else {
+            <a mat-flat-button color="primary" [routerLink]="['/loggin']">Login</a>
+        }
+        
     </mat-toolbar>
 </header>
